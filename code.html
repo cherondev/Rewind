@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="h-100">
 	<head>
-		<title>App Name: A Coding Project by CHeron</title>
+		<title>REWIND: A Coding Project by CHeron</title>
 		<!-- Required meta tags -->
 		<meta charset="utf-8" />
 		<meta
@@ -30,7 +30,7 @@
 		<nav class="navbar navbar-expand-md navbar-dark fixed-top">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="index.html"><img
-						src="img/favicon_io/favicon-32x32.png" alt="Norech Tech Logo" class="d-inline-block align-text-top" width="30" height="24" /> APP NAME</a>
+						src="img/favicon_io/favicon-32x32.png" alt="Norech Tech Logo" class="d-inline-block align-text-top" width="30" height="24" /> REWIND</a>
 				<button
 					class="navbar-toggler"
 					type="button"
@@ -66,22 +66,75 @@
 		<!-- === Main Section === -->
 		<main class="flex-shrink-0">
          <div class="container py-4 px-5 mt-5">
-				<h2 class="norder-1 border-bottom border-dark">The Code for App Name</h2>
+				<h2 class="norder-1 border-bottom border-dark">The Code for REWIND</h2>
 				<div class="row row-cols-1 row-cols-lg-2">
 					<div class="col-lg-8">
 						<pre class="line-numbers">
 							<code class="language-javascript">
-								// Call Hello World
-								function helloWorld() {
-									alert("Hello World!");
+								//Get string from the page
+								//Controller Function
+								function getValues() {
+									document.getElementById("alert").classList.add("invisible");
+
+									let userString = document.getElementById("userString").value;
+									let revString = reverseString(userString);
+									displayString(revString);
+								}
+
+								// Reverse the string
+								//Logic Function
+								function reverseString(userString) {
+									//Initialize empty array
+									let revString = [];
+
+									//Reverse string using a for loop
+									for (let index = userString.length - 1; index >= 0; index--) {
+										revString += userString[index];
+									}
+									return revString;
+								}
+
+								//Display the reverse string to the user
+								//View Function
+								function displayString(revstring) {
+									//Write the mssage to the page
+									document.getElementById("msg").innerHTML = `Your reversed string is: ${revstring}`;
+
+									//Show the alert box
+									document.getElementById("alert").classList.remove("invisible");
 								}
 							</code>
 						</pre>
 					</div>
 					<div class="col-lg-4">
-						<p>The code is structured in one function.</p>
-						<h5>Hello World</h5>
-						<p>Hello World is a function that displays an alert with a message of "Hello World!"</p>
+						<h5>REWIND</h5>
+							<p>Loops is an app that loops through a string entered by a user abd reverses the position of each character. The code contains three functions: getValues(), reverseString(), and displayString().</p>
+							<h5>Function: getValues()</h5>
+								<p><ol>
+									<li>This function gets the <strong>value</strong> of the string entered in the from by a user.</li>
+									<li>The value is assigned to a variable called userString.</li>
+									<li>The function reverseString() is called and assigned to the variable revString which will contain the reversed characters after they are processed by the calling function.</li>
+									<li>Then, displayString() function is called which will display the reversed characters on the screen.</li>
+									<li>The first statement in this function block adds an "invisible" class to the div with the id "alert" which will be removed to reveal a status message after the string has been reversed.</li>
+									</ol>
+								</p>
+							<h5>Function: reverseString()</h5>
+							<p><ol>
+								<li>The purpose of this function is to reverse the string. It does that by first initializing an empty array called <strong>revString</strong>.</li>
+								<li>Next, a <strong>For</strong> loop is used to loop through the userString.</li>
+								<li>Because we are reversing the string, we have to start the index at the last character of the string. Therefore, the index is set to the length of userSring minus one (index = userString - 1).</li>
+								<li>For the next parameter in the For loop, index is set to >= o (index >= 0). This is because we are going backwards from the last index in the string to the first.</li>
+								<li>Likewise, the index is then decremented by 1 (index--) in order to get to evaluate and reverse the next character in the loop.</li>
+								<li>Each time through the loop, the individual reversed character is added to the variable, revString. </li>
+								<li>When the loop is finished processing and all reversed characters are added to revString, revSring is returned to the calling function, reverseString() which assigns it to its local variable, also called, revString.</li>
+								</ol>
+							</p>
+							<h5>Function: displayString()</h5>
+							<p><ol>
+								<li>The purpose of this function is to display the reversed string on the HTML page. This is accomplished by assigning the reversed string to the id "msg" via the innerHTML property of the getElementById method of the DOM.</li>
+								<li>Then, the "invisible" class is removed from the "div" tag with the "alert" id to display the status message on the page.</li>
+								</ol>
+							</p>
 					</div>
 				</div>
          </div>
